@@ -1,0 +1,24 @@
+{
+  "name": "backjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "prestart": "yarn build",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.12.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.20.13",
+    "sqlite3": "^4.1.1"
+  }
+}
