@@ -11,9 +11,6 @@ class IncidentController {
       .limit(5)
       .offset((page - 1) * 5)
       .select("*");
-
-    console.log(count);
-    console.log(incidents);
     res.header("X-Total-Count", count["count(*)"]);
     return res.status(200).json(incidents);
   }
@@ -34,7 +31,6 @@ class IncidentController {
   async remove(req, res) {
     const { id } = req.params;
     const ong_id = req.headers.authorization;
-    console.log(id, ong_id);
 
     const incident = await connection("incidents")
       .where("id", id)
