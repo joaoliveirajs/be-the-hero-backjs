@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "build": "sucrase ./src -d ./dist --transforms imports",
     "migrate": "knex migrate:latest",
+    "dev": "nodemon src/index.js",
+    "prebuild": "yarn migrate",
+    "build": "sucrase ./src -d ./dist --transforms imports",
     "prestart": "yarn build",
     "start": "node dist/index.js"
   },
