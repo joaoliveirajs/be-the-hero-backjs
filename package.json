@@ -4,12 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "migrate": "knex migrate:latest",
-    "dev": "nodemon src/index.js",
-    "prebuild": "yarn migrate",
+    "migrate": "yarn knex migrate:latest",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "prestart": "yarn migrate",
-    "start": "sucrase-node src/index.js"
+    "start": "yarn migrate && yarn build && node dist/index.js"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
