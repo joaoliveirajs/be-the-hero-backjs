@@ -2,6 +2,7 @@ import knex from "knex";
 
 import knexFile from "../../knexfile";
 
-const connection = knex(knexFile.development);
+const enviroment = knexFile.production || knexFile.development;
+const connection = knex(enviroment);
 
 export default connection;
